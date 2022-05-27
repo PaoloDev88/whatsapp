@@ -232,10 +232,10 @@
             <main>
                 <header>
                     <div class="profile">
-                        <img src="img/profile_pic_1.png" alt="">
+                        <img :src="contacts[activeContact].avatar" alt="contacts[activeContact].name">
 
                         <div class="text">
-                            <span>Paolo</span>
+                            <span>{{contacts[activeContact].name}}</span>
                         
                             <div class="lastAccessDate">
                                 Ultimo accesso oggi alle 12:00
