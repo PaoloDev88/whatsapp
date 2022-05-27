@@ -1,6 +1,7 @@
 const myApp = new Vue({
     el: "#app",
     data: {
+        activeContact: "0",
         contacts: [
             {
                 name: 'Michele',
@@ -167,6 +168,7 @@ const myApp = new Vue({
     },
     methods: {
         showMessages(index){
+            this.activeContact = index;
             this.contacts.forEach((contact)=> contact.visible = false);
             this.contacts[index].visible = true;
         }

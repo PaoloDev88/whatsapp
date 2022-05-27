@@ -251,13 +251,13 @@
                 </header>
 
                 <div class="chatBox">
-                    <div class="message myMessage">
-                        <span>Hai portato a spasso il cane?</span>
+                    <div v-for="message in contacts[activeContact].messages" class="message" :class="message.status === 'sent' ? 'myMessage' : 'contactMessage'">
+                        <span>{{message.message}}</span>
 
                         <div class="messageHour">12:00</div>
                     </div>
 
-                    <div class="message myMessage">
+                    <!-- <div class="message myMessage">
                         <span>Ricordati di stendere i panni</span>
 
                         <div class="messageHour">12:00</div>
@@ -352,7 +352,7 @@
                         <span>Tutto fatto!</span>
 
                         <div class="messageHour">12:00</div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <footer>
