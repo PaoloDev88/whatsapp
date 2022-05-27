@@ -15,6 +15,15 @@ body{
     background-color: #e9ebeb;
 }
 
+.myMessage{
+    background-color: #d5f9ba;
+    margin-left: calc(100% - 250px);
+}
+
+.contactMessage{
+    background-color: white;
+}
+
 
 
 /* fine regole dinamiche */
@@ -65,13 +74,27 @@ body{
 .wrapper main{
     width: 65%;
     height: 100%;
-    background-image: url("../img/message_background.jpg");
-    background-position: center;
-    background-size: 55%;
-    filter: opacity(0.4);
+
+    position: relative;
 }
 
-aside header{
+/* uso uno pseudo-element per evitare di dare opacità < 1 al main, perchè renderebbe trasparenti anche tutti i filgi del main */
+.wrapper main::after {
+    content: "";
+    background: url("../img/message_background.jpg");
+    background-position: center;
+    background-size: 55%;
+    opacity: 0.4;
+    
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }
+
+header{
     width: 100%;
     height: 55px;
 
@@ -79,7 +102,6 @@ aside header{
 
     display: flex;
     align-items: center;
-    justify-content: flex-end;
 
     padding: 0 10px;
 }
@@ -234,9 +256,91 @@ aside .lastChats .conctact .lastMessageHour{
 
 /* fine regole .wrapper aside */
 
+/* regole main */
+
+/* regole main header */
+main header{
+    border-left: 1px solid #d6d6d6;
+}
+
+main header .profile img{
+    vertical-align: top;
+
+    margin-right: 10px;
+}
+
+main header .text{
+    display: inline-block;
+}
+
+main header .text .lastAccessDate{
+    color: #6b7376;
+    font-size: 12px;
+}
+/* fine regole main header */
+
+/* regole main .chatBox */
+main .chatBox{
+    height: calc(100% - 110px);
+
+    padding: 40px 75px;
+
+    overflow: auto;
+}
+
+main .chatBox .message{
+    border-radius: 10px;
+
+    width: 250px;
+
+    padding: 12px 15px;
+    margin-bottom: 10px;
+
+    position: relative;
+}
+
+main .chatBox .message span{
+    font-size: 12px;
+    vertical-align: top;
+}
+
+main .chatBox .message .messageHour{
+    font-size: 10px;
+    color: #b6b9bb;
+
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+
+/* fine regole main .chatBox */
 
 
+/* regole main footer */
+main footer{
+    height: 55px;
 
+    background-color: #f3eeea;
 
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    color: #6b7376;
+    font-size: 18px;
+}
+
+main footer input{
+    width: calc(100% - 150px);
+    height: 40px;
+
+    border: none;
+    border-radius: 5px;
+
+    padding: 0 12px;
+}
+/* fine regole main footer */
+
+/* fine regole main */
 
 /* fine regole .wrapper */
