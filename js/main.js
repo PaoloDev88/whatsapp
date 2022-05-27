@@ -5,7 +5,7 @@ const myApp = new Vue({
             {
                 name: 'Michele',
                 avatar: 'img/profile_pic_1.png',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -27,7 +27,7 @@ const myApp = new Vue({
             {
                 name: 'Fabio',
                 avatar: 'img/profile_pic_2.png',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '20/03/2020 16:30:00',
@@ -49,7 +49,7 @@ const myApp = new Vue({
             {
                 name: 'Samuele',
                 avatar: 'img/profile_pic_3.png',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '28/03/2020 10:10:40',
@@ -71,7 +71,7 @@ const myApp = new Vue({
             {
                 name: 'Alessandro B.',
                 avatar: 'img/profile_pic_4.png',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -88,7 +88,7 @@ const myApp = new Vue({
             {
                 name: 'Alessandro L.',
                 avatar: 'img/profile_pic_5.png',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -105,7 +105,7 @@ const myApp = new Vue({
             {
                 name: 'Claudia',
                 avatar: 'img/profile_pic_6.png',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -127,7 +127,7 @@ const myApp = new Vue({
             {
                 name: 'Federico',
                 avatar: 'img/profile_pic_7.png',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -144,7 +144,7 @@ const myApp = new Vue({
             {
                 name: 'Davide',
                 avatar: 'img/profile_pic_8.png',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -164,5 +164,11 @@ const myApp = new Vue({
                 ],
             }
         ]
+    },
+    methods: {
+        showMessages(index){
+            this.contacts.forEach((contact)=> contact.visible = false);
+            this.contacts[index].visible = true;
+        }
     }
 });

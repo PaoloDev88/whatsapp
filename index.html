@@ -50,8 +50,8 @@
                     </div>
                 </nav>
 
-                <div v-for="contact in contacts" class="lastChats">
-                    <div class="conctact active">
+                <div v-for="(contact, i) in contacts" class="lastChats">
+                    <div @click="showMessages(i)" class="contact" :class="contact.visible === true ? 'active' : ''">
                         <img :src="contact.avatar" alt="contact.name">
 
                         <div class="text">

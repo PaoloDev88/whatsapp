@@ -212,7 +212,7 @@ aside .lastChats{
     overflow: auto;
 }
 
-aside .lastChats .conctact{
+aside .lastChats .contact{
     height: 65px;
     
     padding: 5px 0;
@@ -220,7 +220,7 @@ aside .lastChats .conctact{
     position: relative;
 }
 
-aside .lastChats .conctact img{
+aside .lastChats .contact img{
     margin-left: 15px;
 
     height: 50px;
@@ -234,7 +234,7 @@ aside .lastChats .conctact img{
     background-color: white;
 }
 
-aside .lastChats .conctact .text{
+aside .lastChats .contact .text{
     font-size: 15px;
 
     margin-left: 15px;
@@ -242,12 +242,12 @@ aside .lastChats .conctact .text{
     display: inline-block;
 }
 
-aside .lastChats .conctact .text .lastMessage{
+aside .lastChats .contact .text .lastMessage{
     font-size: 11px;
     color: #b6b9bb;
 }
 
-aside .lastChats .conctact .lastMessageHour{
+aside .lastChats .contact .lastMessageHour{
     font-size: 11px;
     color: #b6b9bb;
 
