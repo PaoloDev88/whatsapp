@@ -1,9 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body{
+    font-family: 'Lato', sans-serif;
+}
+
+/* regole dinamiche */
+.active{
+    background-color: #e9ebeb;
+}
+
+
+
+/* fine regole dinamiche */
+
+/* regole #app */
 #app{
     width: 100vw;
     height: 100vh;
@@ -13,13 +29,15 @@
     position: relative;
 }
 
-#app header{
+#app .bgLine{
     height: 115px;
     width: 100%;
 
     background-color: #009688;
 }
+/* fine regole #app */
 
+/* regole .wrapper */
 .wrapper{
     width: 100%;
     height: 100%;
@@ -27,8 +45,7 @@
     max-height: 740px;
 
     
-    background-color: #e5ddd5;
-    /* background-color: #8edafc; */
+    background-color: #d1c3b5;
 
     position: absolute;
     top: 50%;
@@ -38,6 +55,7 @@
     display: flex;
 }
 
+/* regole .wrapper aside */
 .wrapper aside{
     width: 35%;
     min-width: 280px;
@@ -53,4 +71,172 @@
     filter: opacity(0.4);
 }
 
-/* 35% min w 280px */
+aside header{
+    width: 100%;
+    height: 55px;
+
+    background-color: #eaeaea;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    padding: 0 10px;
+}
+
+header .profile{
+    width: calc(100% - 81px);
+}
+
+header .profile img{
+    height: 40px;
+    width: 40px;
+
+    border-radius: 50%;
+
+    object-fit: contain;
+    vertical-align: middle;
+
+    background-color: white;
+}
+
+header .profile span{
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+header .icons i{
+    color: #b1b1b1;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+aside .notifications{
+    height: 65px;
+
+    background-color: #8ad3f1;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 15px;
+}
+
+aside .notifications .bell{
+    height: 40px;
+    width: 40px;
+
+    border-radius: 50%;
+
+    background-color: white;
+    color: #8ad3f1;
+    filter: opacity(0.9);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+aside .notifications .text{
+    font-size: 13px;
+    margin-left: 10px;
+}
+
+aside .notifications a{
+    font-size: 12px;
+    color: #5c899c;
+
+    display: block;
+}
+
+aside nav{
+    height: 40px;
+    padding: 8px;
+
+    background-color: #fafafa;
+}
+
+aside nav div{
+    height: 100%;
+    width: 100%;
+
+    background-color: white;
+    border: 1px solid rgba(240, 240, 240, 0.623);
+
+    padding: 0 20px;
+}
+
+aside nav div i{
+    color: #b1b1b1;
+    font-size: 13px;
+}
+
+aside nav div input{
+    height: 100%;
+    width: calc(100% - 37px);
+
+    margin-left: 20px;
+
+    border: none;
+}
+
+aside .lastChats{
+    max-height: calc(100% - 160px);
+
+    background-color: white;
+
+    overflow: auto;
+}
+
+aside .lastChats .conctact{
+    height: 65px;
+    
+    padding: 5px 0;
+
+    position: relative;
+}
+
+aside .lastChats .conctact img{
+    margin-left: 15px;
+
+    height: 50px;
+    width: 50px;
+
+    border-radius: 50%;
+
+    object-fit: contain;
+    vertical-align: middle;
+
+    background-color: white;
+}
+
+aside .lastChats .conctact .text{
+    font-size: 15px;
+
+    margin-left: 15px;
+
+    display: inline-block;
+}
+
+aside .lastChats .conctact .text .lastMessage{
+    font-size: 11px;
+    color: #b6b9bb;
+}
+
+aside .lastChats .conctact .lastMessageHour{
+    font-size: 11px;
+    color: #b6b9bb;
+
+    position: absolute;
+    top: 5px;
+    right: 20px;
+}
+
+/* fine regole .wrapper aside */
+
+
+
+
+
+
+/* fine regole .wrapper */
