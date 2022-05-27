@@ -50,8 +50,24 @@
                     </div>
                 </nav>
 
-                <div class="lastChats">
+                <div v-for="contact in contacts" class="lastChats">
                     <div class="conctact active">
+                        <img :src="contact.avatar" alt="contact.name">
+
+                        <div class="text">
+                            <span>
+                                {{contact.name}}
+                            </span>
+                            
+                            <div class="lastMessage">
+                                {{contact.messages[contact.messages.length - 1].message}}
+                            </div>
+                        </div>
+
+                        <div class="lastMessageHour">12:00</div>
+                    </div>
+
+                    <!-- <div class="conctact">
                         <img src="img/profile_pic_1.png" alt="">
 
                         <div class="text">
@@ -209,23 +225,7 @@
                         </div>
 
                         <div class="lastMessageHour">12:00</div>
-                    </div>
-
-                    <div class="conctact">
-                        <img src="img/profile_pic_1.png" alt="">
-
-                        <div class="text">
-                            <span>
-                                Paolo
-                            </span>
-                            
-                            <div class="lastMessage">
-                                Ultimo messaggio inviato
-                            </div>
-                        </div>
-
-                        <div class="lastMessageHour">12:00</div>
-                    </div>
+                    </div> -->
                 </div>
             </aside>
 
