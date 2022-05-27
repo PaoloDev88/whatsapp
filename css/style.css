@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#app{
+    width: 100vw;
+    height: 100vh;
+
+    background-color: #dbdbd2;
+
+    position: relative;
+}
+
+#app header{
+    height: 115px;
+    width: 100%;
+
+    background-color: #009688;
+}
+
+.wrapper{
+    width: 100%;
+    height: 100%;
+    max-width: 1230px;
+    max-height: 740px;
+
+    
+    background-color: #e5ddd5;
+    /* background-color: #8edafc; */
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+}
+
+.wrapper aside{
+    width: 35%;
+    min-width: 280px;
+    height: 100%;
+}
+
+.wrapper main{
+    width: 65%;
+    height: 100%;
+    background-image: url("../img/message_background.jpg");
+    background-position: center;
+    background-size: 55%;
+    filter: opacity(0.4);
+}
+
+/* 35% min w 280px */
