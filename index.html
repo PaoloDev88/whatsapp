@@ -101,7 +101,7 @@
                 <footer>
                     <i class="fas fa-smile"></i>
 
-                    <input type="text" placeholder="Scrivi un messaggio">
+                    <input @keyup.enter="addNewMessage" v-model="newMessageText" type="text" placeholder="Scrivi un messaggio">
 
                     <i class="fas fa-microphone"></i>
                 </footer>

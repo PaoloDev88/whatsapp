@@ -2,6 +2,7 @@ const myApp = new Vue({
     el: "#app",
     data: {
         activeContact: "0",
+        newMessageText: "",
         contacts: [
             {
                 name: 'Michele',
@@ -171,6 +172,15 @@ const myApp = new Vue({
             this.activeContact = index;
             this.contacts.forEach((contact)=> contact.visible = false);
             this.contacts[index].visible = true;
+        },
+        addNewMessage(){
+            const newMessage = {
+                date: '10/01/2022 15:30:55',
+                message: this.newMessageText,
+                status: 'sent'
+            }
+            this.contacts[this.activeContact].messages.push(newMessage);
+            this.newMessageText= "";
         }
     }
 });
