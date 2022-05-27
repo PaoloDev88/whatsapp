@@ -6,7 +6,7 @@ const myApp = new Vue({
             {
                 name: 'Michele',
                 avatar: 'img/profile_pic_1.png',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
