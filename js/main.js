@@ -173,8 +173,16 @@ const myApp = new Vue({
             this.activeContact = index;
         },
         addNewMessage(){
+            const now = new Date();
+            let myDate = "";
+            if (now.getMonth() < 10){
+                myDate = now.getDate() + "/" + "0" + (now.getMonth() + 1) + "/" + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+            } else {
+                myDate = now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+            }
+            console.log(myDate);
             const newMessage = {
-                date: '10/01/2022 15:30:55',
+                date: myDate,
                 message: this.newMessageText,
                 status: 'sent'
             }
@@ -184,8 +192,17 @@ const myApp = new Vue({
             setTimeout(this.autoAnswer, 1000);
         },
         autoAnswer(){
+            const now = new Date();
+
+            let myDate = "";
+            if (now.getMonth() < 10){
+                myDate = now.getDate() + "/" + "0" + (now.getMonth() + 1) + "/" + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+            } else {
+                myDate = now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+            }
+
             const answer = {
-                date: '10/01/2022 15:30:55',
+                date: myDate,
                 message: "ok",
                 status: 'received'
             }

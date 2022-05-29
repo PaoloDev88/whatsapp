@@ -64,7 +64,13 @@
                             </div>
                         </div>
 
-                        <div class="lastMessageHour">12:00</div>
+                        <div class="lastMessageHour">
+                            {{contact.messages[contact.messages.length - 1].date[11]}}
+                            {{contact.messages[contact.messages.length - 1].date[12]}}
+                            {{contact.messages[contact.messages.length - 1].date[13]}}
+                            {{contact.messages[contact.messages.length - 1].date[14]}}
+                            {{contact.messages[contact.messages.length - 1].date[15]}}
+                        </div>
                     </div>
                 </div>
             </aside>
@@ -78,7 +84,13 @@
                             <span>{{contacts[activeContact].name}}</span>
                         
                             <div class="lastAccessDate">
-                                Ultimo accesso oggi alle 12:00
+                                Ultimo accesso oggi alle 
+
+                                {{contacts[activeContact].messages[contacts[activeContact].messages.length - 1].date[11]}}
+                                {{contacts[activeContact].messages[contacts[activeContact].messages.length - 1].date[12]}}
+                                {{contacts[activeContact].messages[contacts[activeContact].messages.length - 1].date[13]}}
+                                {{contacts[activeContact].messages[contacts[activeContact].messages.length - 1].date[14]}}
+                                {{contacts[activeContact].messages[contacts[activeContact].messages.length - 1].date[15]}}
                             </div>
                         </div>
                     </div>
@@ -94,7 +106,13 @@
                     <div v-for="(message, i) in contacts[activeContact].messages" class="message" :class="message.status === 'sent' ? 'myMessage' : 'contactMessage'">
                         <span>{{message.message}}</span>
 
-                        <div class="messageHour">12:00</div>
+                        <div class="messageHour">
+                            {{contacts[activeContact].messages[i].date[11]}}
+                            {{contacts[activeContact].messages[i].date[12]}}
+                            {{contacts[activeContact].messages[i].date[13]}}
+                            {{contacts[activeContact].messages[i].date[14]}}
+                            {{contacts[activeContact].messages[i].date[15]}}
+                        </div>
 
                         <i class="fas fa-chevron-down"></i>
 
