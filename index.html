@@ -46,12 +46,12 @@
                     <div>
                         <i class="fas fa-search"></i>
 
-                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input @keyup="showResearchedContacts" v-model="contactResearch" type="text" placeholder="Cerca o inizia una nuova chat">
                     </div>
                 </nav>
-
-                <div v-for="(contact, i) in contacts" class="lastChats">
-                    <div @click="showMessages(i)" class="contact" :class="contact.visible === true ? 'active' : ''">
+                
+                <div class="lastChats">
+                    <div @click="showMessages(i)" v-for="(contact, i) in contacts" class="contact"  :class="[(i === activeContact) ? 'active' : '', (contact.visible === false) ? 'displayNone' : '']">
                         <img :src="contact.avatar" alt="contact.name">
 
                         <div class="text">
@@ -91,10 +91,18 @@
                 </header>
 
                 <div class="chatBox">
-                    <div v-for="message in contacts[activeContact].messages" class="message" :class="message.status === 'sent' ? 'myMessage' : 'contactMessage'">
+                    <div v-for="(message, i) in contacts[activeContact].messages" class="message" :class="message.status === 'sent' ? 'myMessage' : 'contactMessage'">
                         <span>{{message.message}}</span>
 
                         <div class="messageHour">12:00</div>
+
+                        <i class="fas fa-chevron-down"></i>
+
+                        <div class="messageMenu">
+                            <div class="info">Message info</div>
+    
+                            <div @click="deleteMessage(i)" class="deleteMessage">Delete message</div>
+                        </div>
                     </div>
                 </div>
 

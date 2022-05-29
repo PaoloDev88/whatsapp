@@ -3,6 +3,7 @@ const myApp = new Vue({
     data: {
         activeContact: "0",
         newMessageText: "",
+        contactResearch: "",
         contacts: [
             {
                 name: 'Michele',
@@ -29,7 +30,7 @@ const myApp = new Vue({
             {
                 name: 'Fabio',
                 avatar: 'img/profile_pic_2.png',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '20/03/2020 16:30:00',
@@ -51,7 +52,7 @@ const myApp = new Vue({
             {
                 name: 'Samuele',
                 avatar: 'img/profile_pic_3.png',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '28/03/2020 10:10:40',
@@ -73,7 +74,7 @@ const myApp = new Vue({
             {
                 name: 'Alessandro B.',
                 avatar: 'img/profile_pic_4.png',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -90,7 +91,7 @@ const myApp = new Vue({
             {
                 name: 'Alessandro L.',
                 avatar: 'img/profile_pic_5.png',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -107,7 +108,7 @@ const myApp = new Vue({
             {
                 name: 'Claudia',
                 avatar: 'img/profile_pic_6.png',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -129,7 +130,7 @@ const myApp = new Vue({
             {
                 name: 'Federico',
                 avatar: 'img/profile_pic_7.png',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -146,7 +147,7 @@ const myApp = new Vue({
             {
                 name: 'Davide',
                 avatar: 'img/profile_pic_8.png',
-                visible: false,
+                visible: true,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -170,8 +171,6 @@ const myApp = new Vue({
     methods: {
         showMessages(index){
             this.activeContact = index;
-            this.contacts.forEach((contact)=> contact.visible = false);
-            this.contacts[index].visible = true;
         },
         addNewMessage(){
             const newMessage = {
@@ -191,6 +190,16 @@ const myApp = new Vue({
                 status: 'received'
             }
             this.contacts[this.activeContact].messages.push(answer);
+        },
+        showResearchedContacts(){
+            this.contacts.forEach((contact)=>{
+                const newContactResearch = this.contactResearch.charAt(0).toUpperCase() + this.contactResearch.slice(1);
+                if (contact.name.startsWith(newContactResearch) || contact.name.startsWith(this.contactResearch)) contact.visible = true;
+                else contact.visible = false;
+            })
+        },
+        deleteMessage(index){
+            this.contacts[this.activeContact].messages.splice(index, 1);
         }
     }
 });
