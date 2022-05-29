@@ -174,13 +174,14 @@ const myApp = new Vue({
         },
         addNewMessage(){
             const now = new Date();
+
             let myDate = "";
             if (now.getMonth() < 10){
                 myDate = now.getDate() + "/" + "0" + (now.getMonth() + 1) + "/" + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
             } else {
                 myDate = now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
             }
-            console.log(myDate);
+            
             const newMessage = {
                 date: myDate,
                 message: this.newMessageText,
@@ -200,7 +201,7 @@ const myApp = new Vue({
             } else {
                 myDate = now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
             }
-
+            
             const answer = {
                 date: myDate,
                 message: "ok",
