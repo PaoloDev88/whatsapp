@@ -125,9 +125,9 @@
                             {{contacts[activeContact].messages[i].date[15]}}
                         </div>
 
-                        <i class="fas fa-chevron-down"></i>
+                        <i @click="showMessageMenu(i)" class="fas fa-chevron-down"></i>
 
-                        <div class="messageMenu">
+                        <div class="messageMenu" :data-message-index="i">
                             <div class="info">Message info</div>
     
                             <div @click="deleteMessage(i)" class="deleteMessage">Delete message</div>

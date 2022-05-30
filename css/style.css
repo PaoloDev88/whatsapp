@@ -27,6 +27,10 @@ body{
 .displayNone{
     display: none;
 }
+
+.displayBlock{
+    display: block;
+}
 /* fine regole dinamiche */
 
 /* regole #app */
@@ -330,9 +334,9 @@ main .chatBox .message:hover i{
     display: block;
 }
 
-main .chatBox .message:hover .messageMenu{
+/* main .chatBox .message:hover .messageMenu{
     display: block;
-}
+} */
 
 main .chatBox .messageMenu{
     position: absolute;
