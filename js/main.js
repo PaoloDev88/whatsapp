@@ -220,14 +220,14 @@ const myApp = new Vue({
             }
             this.contacts[this.activeContact].messages.push(answer);
         },
-        // ad ogni lettera inserita nell'input di ricerca contatti, confronta il valore dell'input con le iniziali del nome di ciascun contatto e cambia la proprietà visible in false se non corrispondono
+        // ad ogni lettera inserita nell'input di ricerca contatti, mostra gli utenti il cui nome inizia con il valore dell'input cambiando la proprietà visible
         showResearchedContacts(){
             this.contacts.forEach((contact)=>{
                 // creo una copia del valore in input con l'iniziale maiuscola cosi la ricerca funziona anche se in input si inseriscono solo caratteri minuscoli
                 const newContactResearch = this.contactResearch.charAt(0).toUpperCase() + this.contactResearch.slice(1);
                 if (contact.name.startsWith(newContactResearch) || contact.name.startsWith(this.contactResearch)) contact.visible = true;
                 else contact.visible = false;
-            })
+            }) /** in alternativa usando includes() mostro gli utenti che contengono il valore dell'input nel nome anche se il nome non inizia con quel valore */
         },
         // cancella il messaggio corrispondente all'indice che gli passo
         deleteMessage(index){
