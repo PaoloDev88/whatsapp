@@ -229,7 +229,7 @@ const myApp = new Vue({
                 else contact.visible = false;
             }) /** in alternativa usando includes() mostro gli utenti che contengono il valore dell'input nel nome anche se il nome non inizia con quel valore */
         },
-        // al click apre il menu del messaggio corrispondente e al secondo click la chiude
+        // al click sul messaggio apre il menu del messaggio corrispondente e al secondo click la chiude
         showMessageMenu(index){
             const myMessage = document.querySelector(`[data-message-index="${index}"]`);
             if (myMessage.style.display === "block"){

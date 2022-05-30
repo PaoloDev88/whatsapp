@@ -114,7 +114,7 @@
 
                 <!-- messaggi contatto attivo -->
                 <div class="chatBox">
-                    <div v-for="(message, i) in contacts[activeContact].messages" class="message" :class="message.status === 'sent' ? 'myMessage' : 'contactMessage'">
+                    <div @click="showMessageMenu(i)" v-for="(message, i) in contacts[activeContact].messages" class="message" :class="message.status === 'sent' ? 'myMessage' : 'contactMessage'">
                         <span>{{message.message}}</span>
 
                         <div class="messageHour">
@@ -125,7 +125,7 @@
                             {{contacts[activeContact].messages[i].date[15]}}
                         </div>
 
-                        <i @click="showMessageMenu(i)" class="fas fa-chevron-down"></i>
+                        <i class="fas fa-chevron-down"></i>
 
                         <div class="messageMenu" :data-message-index="i">
                             <div class="info">Message info</div>
