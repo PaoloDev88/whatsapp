@@ -1,9 +1,9 @@
 const myApp = new Vue({
     el: "#app",
     data: {
-        activeContact: "0",
-        newMessageText: "",
-        contactResearch: "",
+        activeContact: "0", /** indica l'indice dell'utente attivo */
+        newMessageText: "", /** indica il testo inserito nell'input dei messaggi */
+        contactResearch: "", /** indica il testo inserito nell'input della ricerca contatti */
         contacts: [
             {
                 name: 'Michele',
@@ -169,12 +169,18 @@ const myApp = new Vue({
         ]
     },
     methods: {
+        // quando clicco nella lista contatti, l'indice corrispondente al contatto su cui clicco diventa il mio activeContact
         showMessages(index){
             this.activeContact = index;
         },
+        // quando premo invio dall'input nuovo messaggio, creo un nuovo oggetto che pusho nell'array dei messaggi del mio activeContact
         addNewMessage(){
+            // creo una nuova data
             const now = new Date();
 
+            // se il mese è di una sola cifra aggiungo uno 0 per farlo diventare di due cifre, così so che l'ora del messaggio sarà dall'indice 11 all'indice 15 della stringa della proprietà date nell'array dei messaggi
+            // inoltre compongo una nuova stringa formattata esattamente come nel mio array contacts
+            // in alternativa si può usare toLocalString() ed eliminare la virgola che separa la data dall'ora
             let myDate = "";
             if (now.getMonth() < 10){
                 myDate = now.getDate() + "/" + "0" + (now.getMonth() + 1) + "/" + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
@@ -182,16 +188,21 @@ const myApp = new Vue({
                 myDate = now.getDate() + "/" + (now.getMonth() + 1) + "/" + now.getFullYear() + " " + now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
             }
             
+            // creo un nuovo oggetto che ha come proprità date la nuova data, come message la stringa presa dall'input, e status 'sent'
             const newMessage = {
                 date: myDate,
                 message: this.newMessageText,
                 status: 'sent'
             }
+            // pusho l'oggetto nell'array dei messaggi di activeContact
             this.contacts[this.activeContact].messages.push(newMessage);
+            // resetto la variabile collegata all'input
             this.newMessageText= "";
 
+            // dopo un secondo parte la funzione che genera la risposta in modo analogo
             setTimeout(this.autoAnswer, 1000);
         },
+        // genera una risposta automatica
         autoAnswer(){
             const now = new Date();
 
@@ -209,13 +220,16 @@ const myApp = new Vue({
             }
             this.contacts[this.activeContact].messages.push(answer);
         },
+        // ad ogni lettera inserita nell'input di ricerca contatti, confronta il valore dell'input con le iniziali del nome di ciascun contatto e cambia la proprietà visible in false se non corrispondono
         showResearchedContacts(){
             this.contacts.forEach((contact)=>{
+                // creo una copia del valore in input con l'iniziale maiuscola cosi la ricerca funziona anche se in input si inseriscono solo caratteri minuscoli
                 const newContactResearch = this.contactResearch.charAt(0).toUpperCase() + this.contactResearch.slice(1);
                 if (contact.name.startsWith(newContactResearch) || contact.name.startsWith(this.contactResearch)) contact.visible = true;
                 else contact.visible = false;
             })
         },
+        // cancella il messaggio corrispondente all'indice che gli passo
         deleteMessage(index){
             this.contacts[this.activeContact].messages.splice(index, 1);
         }

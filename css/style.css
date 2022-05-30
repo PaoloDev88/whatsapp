@@ -47,7 +47,7 @@ body{
 }
 /* fine regole #app */
 
-/* regole .wrapper */
+/* regole struttura .wrapper */
 .wrapper{
     width: 100%;
     height: 100%;
@@ -65,7 +65,6 @@ body{
     display: flex;
 }
 
-/* regole .wrapper aside */
 .wrapper aside{
     width: 35%;
     min-width: 280px;
@@ -95,8 +94,10 @@ body{
     right: 0;
     position: absolute;
     z-index: -1;   
-  }
+}
+/* fine regole struttura .wrapper */
 
+/* regole aside */
 header{
     width: 100%;
     height: 55px;
@@ -256,8 +257,7 @@ aside .lastChats .contact .lastMessageHour{
     top: 5px;
     right: 20px;
 }
-
-/* fine regole .wrapper aside */
+/* fine regole aside */
 
 /* regole main */
 
@@ -364,7 +364,6 @@ main .chatBox .messageMenu .info:hover, main .chatBox .messageMenu .deleteMessag
     background-color: rgb(228, 228, 228);
 }
 /* fine regole main .chatBox */
-
 
 /* regole main footer */
 main footer{

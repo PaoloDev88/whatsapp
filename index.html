@@ -9,11 +9,16 @@
     <title>Boolzapp</title>
 </head>
 <body>
-    <div id="app">
+    <!-- container collegato all'sitanza d Vue -->
+    <div id="app"> 
+        <!-- div usato solo per colore di background -->
         <div class="bgLine"></div>
 
+        <!-- wrapper dalla mia app -->
         <div class="wrapper">
+            <!-- parte sinistra  -->
             <aside>
+                <!-- il mio profilo -->
                 <header>
                     <div class="profile">
                         <img src="img/profile_pic_1.png" alt="">
@@ -28,6 +33,7 @@
                     </div>
                 </header>
 
+                <!-- sezione impostazione notifiche -->
                 <div class="notifications">
                     <div class="bell">
                         <i class="fas fa-bell-slash"></i>
@@ -42,6 +48,7 @@
                     </div>
                 </div>
 
+                <!-- input di ricerca utenti per nome -->
                 <nav>
                     <div>
                         <i class="fas fa-search"></i>
@@ -50,6 +57,7 @@
                     </div>
                 </nav>
                 
+                <!-- elenco contatti -->
                 <div class="lastChats">
                     <div @click="showMessages(i)" v-for="(contact, i) in contacts" class="contact" :class="[(i === activeContact) ? 'active' : '', (contact.visible === false) ? 'displayNone' : '']">
                         <img :src="contact.avatar" alt="contact.name">
@@ -75,7 +83,9 @@
                 </div>
             </aside>
 
+            <!-- parte destra -->
             <main>
+                <!-- profilo contatto attivo -->
                 <header>
                     <div class="profile">
                         <img :src="contacts[activeContact].avatar" alt="contacts[activeContact].name">
@@ -102,6 +112,7 @@
                     </div>
                 </header>
 
+                <!-- messaggi contatto attivo -->
                 <div class="chatBox">
                     <div v-for="(message, i) in contacts[activeContact].messages" class="message" :class="message.status === 'sent' ? 'myMessage' : 'contactMessage'">
                         <span>{{message.message}}</span>
@@ -124,6 +135,7 @@
                     </div>
                 </div>
 
+                <!-- input inserimento nuovo messaggio -->
                 <footer>
                     <i class="fas fa-smile"></i>
 
